@@ -57,6 +57,7 @@ const openai = new openai_1.default({
 });
 function getPRDetails() {
     var _a, _b;
+    console.log(GITHUB_TOKEN, OPENAI_API_KEY, OPENAI_API_MODEL);
     return __awaiter(this, void 0, void 0, function* () {
         const { repository, number } = JSON.parse((0, fs_1.readFileSync)(process.env.GITHUB_EVENT_PATH || "", "utf8"));
         const prResponse = yield octokit.pulls.get({
@@ -74,6 +75,7 @@ function getPRDetails() {
     });
 }
 function getDiff(owner, repo, pull_number) {
+    console.log(GITHUB_TOKEN, OPENAI_API_KEY, OPENAI_API_MODEL, pull_number);
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield octokit.pulls.get({
             owner,
