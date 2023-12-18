@@ -27,6 +27,7 @@ async function getPRDetails(): Promise<PRDetails> {
   const { repository, number } = JSON.parse(
     readFileSync(process.env.GITHUB_EVENT_PATH || "", "utf8")
   );
+  console.log(GITHUB_TOKEN, OPENAI_API_KEY, OPENAI_API_MODEL);
   const prResponse = await octokit.pulls.get({
     owner: repository.owner.login,
     repo: repository.name,
